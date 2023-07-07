@@ -6,8 +6,10 @@ public class Shoot : MonoBehaviour
 {
     [SerializeField] GameObject acornPrefab;
     [SerializeField] float shootingPower;
+    [SerializeField] float flyingTime;
 
     private Vector3 startPosition = new Vector3(0, 0, 0);
+    private bool isAiming;
 
     private void Update()
     {
@@ -15,12 +17,28 @@ public class Shoot : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             startPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            isAiming = true;
         }
         // Shoot
         else if (Input.GetMouseButtonUp(0))
         {
             ShootAcorn();
+            isAiming = false;
         }
+ 
+        if (isAiming)
+        {
+            Debug.DrawLine(Vector3.zero, GetLandingPosition(startPosition, CalculateShootingDirection(startPosition)));
+        }
+    }
+
+    private void ShootAcorn()
+    {
+        Vector3 shootingDirection = CalculateShootingDirection(startPosition);
+        Vector3 landingPosition = GetLandingPosition(startPosition, CalculateShootingDirection(startPosition));
+
+        GameObject acorn = Instantiate(acornPrefab, gameObject.transform);
+        acorn.GetComponent<Rigidbody2D>().AddForce(shootingDirection * shootingPower);
     }
 
     private Vector3 CalculateShootingDirection(Vector3 shootPosition)
@@ -31,11 +49,9 @@ public class Shoot : MonoBehaviour
         return shootingDirection;
     }
 
-    private void ShootAcorn()
+    private Vector3 GetLandingPosition(Vector3 startPosition, Vector3 shootingDirection)
     {
-        Vector3 shootingDirection = CalculateShootingDirection(startPosition);
-
-        GameObject acorn = Instantiate(acornPrefab, gameObject.transform);
-        acorn.GetComponent<Rigidbody2D>().AddForce(shootingDirection * shootingPower);
+        Vector3 landingPosition = transform.position + (shootingDirection - startPosition) * flyingTime;
+        return landingPosition;
     }
 }
