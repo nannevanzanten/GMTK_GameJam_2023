@@ -1,18 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LumberjackBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject _target;
 
-    // Update is called once per frame
-    void Update()
+    private readonly float _speed = 3f;
+
+    private float _distance;
+
+    private void Update()
     {
-        
+        _distance = Vector2.Distance(transform.position, _target.transform.position);
+        Vector2 direction = _target.transform.position - transform.position;
+
+        direction.Normalize();
+
+        if (_distance < 5)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, _target.transform.position, _speed * Time.deltaTime);
+        }
     }
 }
