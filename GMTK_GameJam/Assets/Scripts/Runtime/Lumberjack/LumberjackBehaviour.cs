@@ -46,12 +46,12 @@ public class LumberjackBehaviour : MonoBehaviour
     private GameObject GetClosestTree()
     {
         float _maxDistance = 9999f;
-        foreach (GameObject obj in TreeList.Trees)
+        foreach (TreeBehaviour obj in TreeList.Trees)
         {
             float dist = Vector2.Distance(gameObject.transform.position, obj.transform.position);
             if (dist < _maxDistance)
             {
-                _closestTree = obj;
+                _closestTree = obj.gameObject;
                 _maxDistance = dist;
             }
         }

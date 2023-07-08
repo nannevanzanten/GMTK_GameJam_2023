@@ -21,6 +21,7 @@ public class TreeGrowing : MonoBehaviour
         // Only runs once when planted
         if (!isPlanted)
         {
+            TreeList.Trees.Add(gameObject.GetComponent<TreeBehaviour>());
             timeOfPlanting = Time.time;
             SetSortingLayer();
             isPlanted = true;

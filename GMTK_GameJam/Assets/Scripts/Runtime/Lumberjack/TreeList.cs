@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class TreeList : MonoBehaviour
 {
-    public static List<GameObject> Trees;
+    public static List<TreeBehaviour> Trees;
 
     private void Awake()
     {
-        Trees = new List<GameObject>();
+        Trees = new List<TreeBehaviour>();
     }
 }
