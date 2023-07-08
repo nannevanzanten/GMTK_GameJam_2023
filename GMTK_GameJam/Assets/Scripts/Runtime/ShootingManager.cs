@@ -46,7 +46,7 @@ public class ShootingManager : MonoBehaviour
 
         if (isAiming)
         {
-            Debug.DrawLine((Vector2)selectedTree.transform.position, GetLandingPosition(CalculateShootingDirection()));
+            Debug.DrawLine((Vector2)selectedTree.transform.position, GetLandingPosition());
         }
     }
 
@@ -58,7 +58,7 @@ public class ShootingManager : MonoBehaviour
     private void ShootAcorn()
     {
         Vector2 shootingDirection = CalculateShootingDirection();
-        Vector2 landingPosition = GetLandingPosition(CalculateShootingDirection());
+        Vector2 landingPosition = GetLandingPosition();
 
         GameObject acorn = Instantiate(acornPrefab, selectedTree.transform.position, Quaternion.identity);
         acorn.GetComponent<Acorn>().goToPosition = landingPosition;
@@ -73,9 +73,9 @@ public class ShootingManager : MonoBehaviour
         return shootingDirection;
     }
 
-    private Vector2 GetLandingPosition(Vector2 shootingDirection)
+    private Vector2 GetLandingPosition()
     {
-        Vector2 distance = (shootingDirection - (Vector2)selectedTree.transform.position) * flyingTime;
+        Vector2 distance = ((Vector2)selectedTree.transform.position - (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition)) * flyingTime;
 
         if (distance.magnitude < minDistance)
         {
