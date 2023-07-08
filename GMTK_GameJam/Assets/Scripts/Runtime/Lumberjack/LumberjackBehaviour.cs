@@ -1,57 +1,52 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class LumberjackBehaviour : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> _trees = new List<GameObject>();
+    [SerializeField] private List<GameObject> Trees;
 
-    private Transform _nearestTree;
+    private enum LumberState { Attack, Search, Stunned }
+
+    private LumberState _lumberState;
+
+    private GameObject _closestTree;
 
     private readonly float _speed = 3f;
 
-    private float _distance;
+    private float _maxDistance = 9999f;
 
-    Transform GetClosestTree(Transform[] trees)
+    private void Start()
     {
-        Transform tMin = null;
-        float minDist = Mathf.Infinity;
-        Vector2 currentPos = transform.position;
-        foreach (Transform t in trees)
-        {
-            float dist = Vector2.Distance(t.position, currentPos);
-            if (dist < minDist)
-            {
-                tMin = t;
-                minDist = dist;
-            }
-        }
-        return tMin;
+        _lumberState = LumberState.Search;
+        Trees.AddRange(GameObject.FindGameObjectsWithTag("tree"));
     }
 
-    private void CalculateDistance()
+    private void CalculateClosestTree()
     {
-        for (int i = 0; i < _trees.Count; i++)
+        foreach (GameObject obj in Trees)
         {
-            Vector2.Distance(_trees[i].transform.position, gameObject.transform.position);
+            float dist = Vector2.Distance(gameObject.transform.position, obj.transform.position);
+            if (dist < _maxDistance && _lumberState == LumberState.Search)
+            {
+                _closestTree = obj;
+                _maxDistance = dist;
+
+                transform.position = Vector2.MoveTowards(transform.position, obj.transform.position, _speed * Time.deltaTime);
+            }
         }
+    }
+
+    private void AttackTree()
+    {
+
     }
 
     private void Update()
     {
-        CalculateDistance();
-
-        //GetClosestTree(_trees);
-        //_distance = Vector2.Distance(transform.position, _trees.transform.position);
-        //Vector2 direction = _trees.transform.position - transform.position;
-
-        //direction.Normalize();
-
-        if (_distance < 5)
-        {
-            //transform.position = Vector2.MoveTowards(transform.position, _trees.transform.position, _speed * Time.deltaTime);
-        }
+        CalculateClosestTree();
+        print(_closestTree);
     }
 }

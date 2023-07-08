@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - tree
+  - LumberSpawner
   layers:
   - Default
   - TransparentFX

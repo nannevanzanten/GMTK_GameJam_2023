@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class LumberjackSpawnPoint : MonoBehaviour
 {
-    [SerializeField] private LumberjackBehaviour spawnPoint;
+    [SerializeField] private GameObject[] SpawnPoints;
+    [SerializeField] private GameObject LumberToSpawn;
 
-    // Start is called before the first frame update
     void Start()
     {
-        //Instantiate(spawnPoint, gameObject.transform.position);
+        for (int i = 0; i < SpawnPoints.Length; i++)
+        {
+            Instantiate(LumberToSpawn, SpawnPoints[i].transform.position, Quaternion.identity);
+        }
     }
 }
