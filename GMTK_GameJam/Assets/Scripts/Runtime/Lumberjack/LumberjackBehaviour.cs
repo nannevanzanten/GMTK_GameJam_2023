@@ -1,27 +1,21 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 
 public class LumberjackBehaviour : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> Trees;
-
     private enum LumberState { attacking, searching, walking }
 
     private LumberState _lumberState;
 
-    private GameObject _closestTree;
-
     private readonly float _speed = 3f;
 
-    private GameObject closestTree;
+    private GameObject _closestTree;
 
     private void Start()
     {
         _lumberState = LumberState.searching;
-        Trees.AddRange(GameObject.FindGameObjectsWithTag("tree"));
     }
 
     private void Update()
@@ -30,23 +24,21 @@ public class LumberjackBehaviour : MonoBehaviour
         {
             case LumberState.searching:
                 //Search for the closest tree
-                closestTree = GetClosestTree();
+                _closestTree = GetClosestTree();
                 _lumberState = LumberState.walking;
                 break;
 
             case LumberState.walking:
                 WalkToClosestTree();
 
-                if (GetDistanceToTree(closestTree) < 0.001f)
+                if (GetDistanceToTree(_closestTree) < 0.001f)
                 {
                     _lumberState = LumberState.attacking;
                 }
                 break;
 
             case LumberState.attacking:
-                Trees.Remove(closestTree);
-                Destroy(closestTree);
-                _lumberState = LumberState.searching;
+                AttackTree();
                 break;
         }
     }
@@ -54,12 +46,12 @@ public class LumberjackBehaviour : MonoBehaviour
     private GameObject GetClosestTree()
     {
         float _maxDistance = 9999f;
-        foreach (GameObject obj in Trees)
+        foreach (TreeBehaviour obj in TreeList.Trees)
         {
             float dist = Vector2.Distance(gameObject.transform.position, obj.transform.position);
             if (dist < _maxDistance)
             {
-                _closestTree = obj;
+                _closestTree = obj.gameObject;
                 _maxDistance = dist;
             }
         }
@@ -80,6 +72,8 @@ public class LumberjackBehaviour : MonoBehaviour
 
     private void AttackTree()
     {
-        
+        TreeList.Trees.Remove(_closestTree);
+        Destroy(_closestTree);
+        _lumberState = LumberState.searching;
     }
 }

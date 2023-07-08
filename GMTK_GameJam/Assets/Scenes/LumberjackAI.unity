@@ -564,8 +564,9 @@ GameObject:
   - component: {fileID: 1757788679}
   - component: {fileID: 1757788678}
   - component: {fileID: 1757788681}
+  - component: {fileID: 1757788682}
   m_Layer: 0
-  m_Name: SelectionManager
+  m_Name: Managers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -631,6 +632,19 @@ MonoBehaviour:
   SpawnPoints:
   - {fileID: 1862170335}
   LumberToSpawn: {fileID: 773466260711490553, guid: 4a11a9c921d1bcf43ac9c28dfd13941e, type: 3}
+--- !u!114 &1757788682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757788677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621a2d0e30658af4895a68ead462d821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Reference: {fileID: 0}
 --- !u!1 &1862170335
 GameObject:
   m_ObjectHideFlags: 0
