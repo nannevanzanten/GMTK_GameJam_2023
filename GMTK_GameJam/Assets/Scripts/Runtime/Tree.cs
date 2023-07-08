@@ -22,8 +22,8 @@ public class Tree : MonoBehaviour
         if (!isPlanted)
         {
             timeOfPlanting = Time.time;
-            isPlanted = true;
             SetSortingLayer();
+            isPlanted = true;
         }
 
         GrowTree();
