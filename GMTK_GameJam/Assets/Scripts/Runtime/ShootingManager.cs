@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shoot : MonoBehaviour
+public class ShootingManager : MonoBehaviour
 {
     [SerializeField] GameObject acornPrefab;
     [SerializeField] float shootingPower;
@@ -14,6 +14,12 @@ public class Shoot : MonoBehaviour
     [SerializeField] GameObject aimPoint;
 
     private bool isAiming;
+    private GameObject selectedTree;
+
+    private void Start()
+    {
+        selectedTree = GameObject.FindWithTag("tree");
+    }
 
     private void Update()
     {
@@ -28,10 +34,10 @@ public class Shoot : MonoBehaviour
             ShootAcorn();
             isAiming = false;
         }
- 
+
         if (isAiming)
         {
-            Debug.DrawLine((Vector2)transform.position, GetLandingPosition(CalculateShootingDirection()));
+            Debug.DrawLine((Vector2)selectedTree.transform.position, GetLandingPosition(CalculateShootingDirection()));
         }
     }
 
@@ -48,15 +54,15 @@ public class Shoot : MonoBehaviour
     private Vector2 CalculateShootingDirection()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 shootingDirection = (Vector2)transform.position - mousePosition;
+        Vector2 shootingDirection = (Vector2)selectedTree.transform.position - mousePosition;
 
         return shootingDirection;
     }
 
     private Vector2 GetLandingPosition(Vector2 shootingDirection)
     {
-        Vector2 distance = (shootingDirection - (Vector2)transform.position) * flyingTime;
-   
+        Vector2 distance = (shootingDirection - (Vector2)selectedTree.transform.position) * flyingTime;
+
         if (distance.magnitude < minDistance)
         {
             distance = distance.normalized * minDistance;
@@ -66,7 +72,7 @@ public class Shoot : MonoBehaviour
             distance = distance.normalized * maxDistance;
         }
 
-        Vector2 landingPosition = (Vector2)transform.position + distance;
+        Vector2 landingPosition = (Vector2)selectedTree.transform.position + distance;
         return landingPosition;
     }
 }

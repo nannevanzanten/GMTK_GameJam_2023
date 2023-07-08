@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Trees
+    uniqueID: 3175672149
+    locked: 0
+  - name: Acorn
+    uniqueID: 777285033
+    locked: 0
