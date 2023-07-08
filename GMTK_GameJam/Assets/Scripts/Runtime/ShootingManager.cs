@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shoot : MonoBehaviour
+public class ShootingManager : MonoBehaviour
 {
     [SerializeField] GameObject acornPrefab;
     [SerializeField] float shootingPower;
@@ -14,26 +14,45 @@ public class Shoot : MonoBehaviour
     [SerializeField] GameObject aimPoint;
 
     private bool isAiming;
+    private GameObject selectedTree;
+
+    private SelectionManager selectionManager;
+
+    private void Awake()
+    {
+        selectionManager = FindObjectOfType<SelectionManager>();
+
+        selectionManager.OnSelectTree += SelectionManager_OnSelectTree;
+    }
+
+    private void Start()
+    {
+        selectedTree = selectionManager.GetSelectedTree();
+    }
 
     private void Update()
     {
         // Start aiming
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             isAiming = true;
         }
         // Shoot
-        else if (Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(1))
         {
             ShootAcorn();
             isAiming = false;
         }
- 
+
         if (isAiming)
         {
-            Debug.DrawLine((Vector2)transform.position, GetLandingPosition(CalculateShootingDirection()));
-
+            Debug.DrawLine((Vector2)selectedTree.transform.position, GetLandingPosition(CalculateShootingDirection()));
         }
+    }
+
+    private void SelectionManager_OnSelectTree(object sender, System.EventArgs e)
+    {
+        selectedTree = selectionManager.GetSelectedTree();
     }
 
     private void ShootAcorn()
@@ -41,23 +60,23 @@ public class Shoot : MonoBehaviour
         Vector2 shootingDirection = CalculateShootingDirection();
         Vector2 landingPosition = GetLandingPosition(CalculateShootingDirection());
 
-        GameObject acorn = Instantiate(acornPrefab, gameObject.transform);
+        GameObject acorn = Instantiate(acornPrefab, selectedTree.transform.position, Quaternion.identity);
         acorn.GetComponent<Acorn>().goToPosition = landingPosition;
         acorn.GetComponent<Rigidbody2D>().AddForce(shootingDirection * shootingPower);
     }
 
-    private Vector3 CalculateShootingDirection()
+    private Vector2 CalculateShootingDirection()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 shootingDirection = (Vector2)transform.position - mousePosition;
+        Vector2 shootingDirection = (Vector2)selectedTree.transform.position - mousePosition;
 
         return shootingDirection;
     }
 
-    private Vector3 GetLandingPosition(Vector2 shootingDirection)
+    private Vector2 GetLandingPosition(Vector2 shootingDirection)
     {
-        Vector2 distance = (shootingDirection - (Vector2)transform.position) * flyingTime;
-   
+        Vector2 distance = (shootingDirection - (Vector2)selectedTree.transform.position) * flyingTime;
+
         if (distance.magnitude < minDistance)
         {
             distance = distance.normalized * minDistance;
@@ -67,7 +86,7 @@ public class Shoot : MonoBehaviour
             distance = distance.normalized * maxDistance;
         }
 
-        Vector3 landingPosition = (Vector2)transform.position + distance;
+        Vector2 landingPosition = (Vector2)selectedTree.transform.position + distance;
         return landingPosition;
     }
 }
