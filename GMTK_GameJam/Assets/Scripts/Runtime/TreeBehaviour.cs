@@ -1,59 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
-public class TreeBehaviour : MonoBehaviour
+public class Tree : MonoBehaviour
 {
-    [SerializeField] private Sprite[] treeSprites;
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    public bool canShoot = true;
 
-    [SerializeField] private float timeToLevel1;
-    [SerializeField] private float timeToLevel2;
-
-    [SerializeField] private int treeLevel = 0;
-
-    private float timeOfPlanting;
-
-    private bool isPlanted = false;
+    [SerializeField] private float timeBetweenShooting;
+    private float shootTime;
 
     private void Update()
     {
-        // Only runs once when planted
-        if (!isPlanted)
+        if (!canShoot)
         {
-            TreeList.Trees.Add(gameObject);
-            timeOfPlanting = Time.time;
-            SetSortingLayer();
-            isPlanted = true;
+            resetTimer();
         }
-
-        GrowTree();
+        else if (canShoot)
+        {
+            shootTime = Time.time;
+        }
     }
 
-    private void UpdateTreeSprite()
+    private void resetTimer()
     {
-        spriteRenderer.sprite = treeSprites[treeLevel];
-    }
-
-    private void GrowTree()
-    {
-        if (Time.time - timeOfPlanting >= timeToLevel1 && Time.time - timeOfPlanting < timeToLevel2)
+        Debug.Log(Time.time - shootTime);
+        if (Time.time - shootTime > timeBetweenShooting)
         {
-            treeLevel = 1;
-            UpdateTreeSprite();
+            canShoot = true;
         }
-        else if (Time.time - timeOfPlanting >= timeToLevel2)
-        {
-            treeLevel = 2;
-            UpdateTreeSprite();
-        }
-
-    }
-
-    private void SetSortingLayer()
-    {
-        int order = -(int)(transform.position.y * 100);
-        spriteRenderer.sortingOrder = order;
     }
 }
