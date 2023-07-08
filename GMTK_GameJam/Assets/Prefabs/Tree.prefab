@@ -137,7 +137,7 @@ MonoBehaviour:
   canShoot: 1
   isDead: 0
   timeBetweenShooting: 3
-  Health: 20
+  Health: 3
 --- !u!114 &3314154831491388844
 MonoBehaviour:
   m_ObjectHideFlags: 0
