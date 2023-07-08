@@ -43,6 +43,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Grass
+    uniqueID: 1722741585
+    locked: 0
+  - name: Flowers
+    uniqueID: 3299171011
+    locked: 0
   - name: Trees
     uniqueID: 3175672149
     locked: 0
