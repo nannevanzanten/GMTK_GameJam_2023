@@ -141,11 +141,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8908372611922212326, guid: 589a4befe08722d4fbfeac173ea0de4b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.8655005
+      value: 6.99
       objectReference: {fileID: 0}
     - target: {fileID: 8908372611922212326, guid: 589a4befe08722d4fbfeac173ea0de4b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.56017053
+      value: -1.04
       objectReference: {fileID: 0}
     - target: {fileID: 8908372611922212326, guid: 589a4befe08722d4fbfeac173ea0de4b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -193,7 +193,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 352334242}
-  - component: {fileID: 352334241}
   m_Layer: 0
   m_Name: LumberSpawn (1)
   m_TagString: LumberSpawner
@@ -201,20 +200,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &352334241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 352334240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416396905c332e54795e2fdc58d53044, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnPoints: []
-  LumberToSpawn: {fileID: 0}
 --- !u!4 &352334242
 Transform:
   m_ObjectHideFlags: 0
@@ -239,7 +224,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 582426141}
-  - component: {fileID: 582426140}
   m_Layer: 0
   m_Name: LumberSpawn (2)
   m_TagString: LumberSpawner
@@ -247,20 +231,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &582426140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 582426139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416396905c332e54795e2fdc58d53044, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnPoints: []
-  LumberToSpawn: {fileID: 0}
 --- !u!4 &582426141
 Transform:
   m_ObjectHideFlags: 0
@@ -294,11 +264,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8908372611922212326, guid: 589a4befe08722d4fbfeac173ea0de4b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.3200283
+      value: -6.57
       objectReference: {fileID: 0}
     - target: {fileID: 8908372611922212326, guid: 589a4befe08722d4fbfeac173ea0de4b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.29456487
+      value: 2.85
       objectReference: {fileID: 0}
     - target: {fileID: 8908372611922212326, guid: 589a4befe08722d4fbfeac173ea0de4b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -355,11 +325,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8908372611922212326, guid: 589a4befe08722d4fbfeac173ea0de4b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.4608731
+      value: -1.33
       objectReference: {fileID: 0}
     - target: {fileID: 8908372611922212326, guid: 589a4befe08722d4fbfeac173ea0de4b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.5164285
+      value: 1.59
       objectReference: {fileID: 0}
     - target: {fileID: 8908372611922212326, guid: 589a4befe08722d4fbfeac173ea0de4b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -468,7 +438,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1458453813}
-  - component: {fileID: 1458453812}
   m_Layer: 0
   m_Name: LumberSpawn (3)
   m_TagString: LumberSpawner
@@ -476,20 +445,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1458453812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1458453811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416396905c332e54795e2fdc58d53044, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnPoints: []
-  LumberToSpawn: {fileID: 0}
 --- !u!4 &1458453813
 Transform:
   m_ObjectHideFlags: 0
@@ -675,9 +630,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnPoints:
   - {fileID: 1862170335}
-  - {fileID: 352334240}
-  - {fileID: 582426139}
-  - {fileID: 1458453811}
   LumberToSpawn: {fileID: 773466260711490553, guid: 4a11a9c921d1bcf43ac9c28dfd13941e, type: 3}
 --- !u!1 &1862170335
 GameObject:
@@ -688,7 +640,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1862170337}
-  - component: {fileID: 1862170336}
   m_Layer: 0
   m_Name: LumberSpawn
   m_TagString: LumberSpawner
@@ -696,20 +647,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1862170336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1862170335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416396905c332e54795e2fdc58d53044, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnPoints: []
-  LumberToSpawn: {fileID: 0}
 --- !u!4 &1862170337
 Transform:
   m_ObjectHideFlags: 0
