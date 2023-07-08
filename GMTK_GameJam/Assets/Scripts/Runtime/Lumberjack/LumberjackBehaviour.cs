@@ -17,7 +17,6 @@ public class LumberjackBehaviour : MonoBehaviour
     private readonly int _damage = 1;
     private float _damageInterval = 1;
     private bool _canAttack;
-    private bool _isDead;
 
     private void Start()
     {
@@ -51,17 +50,17 @@ public class LumberjackBehaviour : MonoBehaviour
                 break;
 
             case LumberState.attacking:
-                AttackTree();
+                if (_canAttack)
+                {
+                    _canAttack = false;
+                    _damageInterval = Time.time;
+                    AttackTree();
+                }
+                else
+                {
+                    ResetTimer();
+                }
                 break;
-        }
-
-        if (!_canAttack)
-        {
-            ResetTimer();
-        }
-        else if (_canAttack)
-        {
-            _damageInterval = Time.time;
         }
     }
 
@@ -102,21 +101,15 @@ public class LumberjackBehaviour : MonoBehaviour
 
     private void AttackTree()
     {
-        if (_canAttack)
-        {
-            _closestTree.Health -= 1;
-            _canAttack = false;
-        }
+        _closestTree.Health -= _damage;
 
         if (_closestTree.Health <= 0)
         {
+            _closestTree.Health = 0;
             TreeList.Trees.Remove(_closestTree);
             StartCoroutine(_closestTree.KillTree());
+            
             _lumberState = LumberState.searching;
-
-            _closestTree.Health = 0;
-
-            _isDead = true;
 
             return;
         }

@@ -32,6 +32,12 @@ public class ShootingManager : MonoBehaviour
 
     private void Update()
     {
+        // if there is no tree selected return the function
+        if (selectedTree == null)
+        {
+            return;
+        }
+
         // Start aiming
         if (Input.GetMouseButtonDown(1))
         {
