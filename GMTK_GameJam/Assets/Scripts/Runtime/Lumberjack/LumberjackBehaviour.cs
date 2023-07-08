@@ -11,7 +11,7 @@ public class LumberjackBehaviour : MonoBehaviour
 
     private readonly float _speed = 3f;
 
-    private GameObject _closestTree;
+    private TreeBehaviour _closestTree;
 
     private void Start()
     {
@@ -29,9 +29,16 @@ public class LumberjackBehaviour : MonoBehaviour
                 break;
 
             case LumberState.walking:
+                // If the tree has been destroyed search for new one
+                if (_closestTree.isDead)
+                {
+                    _lumberState = LumberState.searching;
+                    break;
+                }
+
                 WalkToClosestTree();
 
-                if (GetDistanceToTree(_closestTree) < 0.001f)
+                if (GetDistanceToTree(_closestTree.gameObject) < 0.001f)
                 {
                     _lumberState = LumberState.attacking;
                 }
@@ -43,7 +50,7 @@ public class LumberjackBehaviour : MonoBehaviour
         }
     }
 
-    private GameObject GetClosestTree()
+    private TreeBehaviour GetClosestTree()
     {
         float _maxDistance = 9999f;
         foreach (TreeBehaviour obj in TreeList.Trees)
@@ -51,7 +58,7 @@ public class LumberjackBehaviour : MonoBehaviour
             float dist = Vector2.Distance(gameObject.transform.position, obj.transform.position);
             if (dist < _maxDistance)
             {
-                _closestTree = obj.gameObject;
+                _closestTree = obj;
                 _maxDistance = dist;
             }
         }
@@ -73,7 +80,7 @@ public class LumberjackBehaviour : MonoBehaviour
     private void AttackTree()
     {
         TreeList.Trees.Remove(_closestTree);
-        Destroy(_closestTree);
+        StartCoroutine(_closestTree.KillTree());
         _lumberState = LumberState.searching;
     }
 }
