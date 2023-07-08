@@ -14,7 +14,7 @@ public class ShootingManager : MonoBehaviour
     [SerializeField] GameObject aimPoint;
 
     private bool isAiming;
-    private Tree selectedTree;
+    private TreeBehaviour selectedTree;
 
     private SelectionManager selectionManager;
 
