@@ -8,7 +8,7 @@ public class LumberjackBehaviour : MonoBehaviour
 {
     [SerializeField] private List<GameObject> Trees;
 
-    private enum LumberState { Attack, Search, Stunned }
+    private enum LumberState { attacking, searching, walking }
 
     private LumberState _lumberState;
 
@@ -16,37 +16,70 @@ public class LumberjackBehaviour : MonoBehaviour
 
     private readonly float _speed = 3f;
 
-    private float _maxDistance = 9999f;
+    private GameObject closestTree;
 
     private void Start()
     {
-        _lumberState = LumberState.Search;
+        _lumberState = LumberState.searching;
         Trees.AddRange(GameObject.FindGameObjectsWithTag("tree"));
-    }
-
-    private void CalculateClosestTree()
-    {
-        foreach (GameObject obj in Trees)
-        {
-            float dist = Vector2.Distance(gameObject.transform.position, obj.transform.position);
-            if (dist < _maxDistance && _lumberState == LumberState.Search)
-            {
-                _closestTree = obj;
-                _maxDistance = dist;
-
-                transform.position = Vector2.MoveTowards(transform.position, obj.transform.position, _speed * Time.deltaTime);
-            }
-        }
-    }
-
-    private void AttackTree()
-    {
-
     }
 
     private void Update()
     {
-        CalculateClosestTree();
-        print(_closestTree);
+        switch (_lumberState)
+        {
+            case LumberState.searching:
+                //Search for the closest tree
+                closestTree = GetClosestTree();
+                _lumberState = LumberState.walking;
+                break;
+
+            case LumberState.walking:
+                WalkToClosestTree();
+
+                if (GetDistanceToTree(closestTree) < 0.001f)
+                {
+                    _lumberState = LumberState.attacking;
+                }
+                break;
+
+            case LumberState.attacking:
+                Trees.Remove(closestTree);
+                Destroy(closestTree);
+                _lumberState = LumberState.searching;
+                break;
+        }
+    }
+
+    private GameObject GetClosestTree()
+    {
+        float _maxDistance = 9999f;
+        foreach (GameObject obj in Trees)
+        {
+            float dist = Vector2.Distance(gameObject.transform.position, obj.transform.position);
+            if (dist < _maxDistance)
+            {
+                _closestTree = obj;
+                _maxDistance = dist;
+            }
+        }
+
+        return _closestTree;
+    }
+
+    private float GetDistanceToTree(GameObject tree)
+    {
+        Vector2 distanceVector = transform.position - tree.transform.position;
+        return distanceVector.magnitude;
+    }
+
+    private void WalkToClosestTree()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, _closestTree.transform.position, _speed * Time.deltaTime);
+    }
+
+    private void AttackTree()
+    {
+        
     }
 }
