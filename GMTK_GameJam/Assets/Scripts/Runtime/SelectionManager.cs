@@ -43,7 +43,6 @@ public class SelectionManager : MonoBehaviour
 
     public TreeBehaviour GetSelectedTree()
     {
-        Debug.Log(selectedTree);
         return selectedTree;
     }
 }

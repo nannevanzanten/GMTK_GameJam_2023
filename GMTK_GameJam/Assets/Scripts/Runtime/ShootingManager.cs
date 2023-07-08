@@ -92,7 +92,6 @@ public class ShootingManager : MonoBehaviour
 
     private Vector2 GetLandingPosition()
     {
-        Debug.Log(selectedTree);
         Vector2 distance = ((Vector2)selectedTree.gameObject.transform.position - (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition)) * flyingTime;
 
         if (distance.magnitude < minDistance)

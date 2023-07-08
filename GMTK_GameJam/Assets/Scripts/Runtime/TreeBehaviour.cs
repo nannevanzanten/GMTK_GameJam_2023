@@ -5,6 +5,7 @@ using UnityEngine;
 public class TreeBehaviour : MonoBehaviour
 {
     public bool canShoot = true;
+    public bool isDead = false;
 
     [SerializeField] private float timeBetweenShooting;
     private float shootTime;
@@ -23,10 +24,16 @@ public class TreeBehaviour : MonoBehaviour
 
     private void resetTimer()
     {
-        Debug.Log(Time.time - shootTime);
         if (Time.time - shootTime > timeBetweenShooting)
         {
             canShoot = true;
         }
+    }
+
+    public IEnumerator KillTree()
+    {
+        isDead = true;
+        yield return new WaitForSeconds(0.001f);
+        Destroy(gameObject);
     }
 }

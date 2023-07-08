@@ -12,7 +12,6 @@ public class Acorn : MonoBehaviour
     {
         if ((transform.position - goToPosition).magnitude < 0.1)
         {
-            //Instantiate(tree, transform);
             Instantiate(tree, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
