@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
-public class Tree : MonoBehaviour
+public class TreeBehaviour : MonoBehaviour
 {
     [SerializeField] private Sprite[] treeSprites;
     [SerializeField] private SpriteRenderer spriteRenderer;
@@ -21,6 +22,7 @@ public class Tree : MonoBehaviour
         // Only runs once when planted
         if (!isPlanted)
         {
+            TreeList.Trees.Add(gameObject);
             timeOfPlanting = Time.time;
             SetSortingLayer();
             isPlanted = true;
