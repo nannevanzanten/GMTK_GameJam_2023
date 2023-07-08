@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6209734338509057273
+--- !u!1 &4862659171261030243
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,24 +8,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1630612661422940775}
-  - component: {fileID: 8258028922306292139}
-  - component: {fileID: 8680325374541971924}
-  - component: {fileID: 7710423633621810724}
+  - component: {fileID: 8908372611922212326}
+  - component: {fileID: 8075033275566387891}
+  - component: {fileID: 4134210010343103727}
+  - component: {fileID: 4688390343175430850}
   m_Layer: 0
-  m_Name: Acorn
-  m_TagString: Untagged
+  m_Name: Tree
+  m_TagString: tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1630612661422940775
+--- !u!4 &8908372611922212326
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6209734338509057273}
+  m_GameObject: {fileID: 4862659171261030243}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -34,13 +34,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8258028922306292139
+--- !u!212 &8075033275566387891
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6209734338509057273}
+  m_GameObject: {fileID: 4862659171261030243}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -72,36 +72,29 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 777285033
-  m_SortingLayer: 2
+  m_SortingLayerID: -1119295147
+  m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3be2f72534b5bc94f8cef1f8e3305f68, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 60ac3b4a0cfbf0e4aa78ae33908005d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &8680325374541971924
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!70 &4134210010343103727
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6209734338509057273}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
+  m_GameObject: {fileID: 4862659171261030243}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -109,21 +102,42 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &7710423633621810724
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 2, y: 3}
+  m_Direction: 0
+--- !u!114 &4688390343175430850
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6209734338509057273}
+  m_GameObject: {fileID: 4862659171261030243}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd937b65751e6284ab55cd4efa4fe2a4, type: 3}
+  m_Script: {fileID: 11500000, guid: cbdc56a66c464b546bdb20dad7018417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goToPosition: {x: 0, y: 0, z: 0}
-  tree: {fileID: 4862659171261030243, guid: 589a4befe08722d4fbfeac173ea0de4b, type: 3}
+  treeSprites:
+  - {fileID: 21300000, guid: 60ac3b4a0cfbf0e4aa78ae33908005d3, type: 3}
+  - {fileID: 21300000, guid: d1ffde67928afc84287f3073254bc7eb, type: 3}
+  - {fileID: 21300000, guid: 29cb8b440d8ded24ab49aaa6e77a958c, type: 3}
+  spriteRenderer: {fileID: 8075033275566387891}
+  timeToLevel1: 1
+  timeToLevel2: 3
+  treeLevel: 0
