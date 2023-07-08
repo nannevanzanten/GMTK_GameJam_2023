@@ -36,17 +36,19 @@ public class ShootingManager : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             isAiming = true;
+            aimPoint.SetActive(true);
         }
         // Shoot
         else if (Input.GetMouseButtonUp(1))
         {
             ShootAcorn();
             isAiming = false;
+            aimPoint.SetActive(false);
         }
 
         if (isAiming)
         {
-            Debug.DrawLine((Vector2)selectedTree.transform.position, GetLandingPosition(CalculateShootingDirection()));
+            aimPoint.transform.position = GetLandingPosition();
         }
     }
 
@@ -58,7 +60,8 @@ public class ShootingManager : MonoBehaviour
     private void ShootAcorn()
     {
         Vector2 shootingDirection = CalculateShootingDirection();
-        Vector2 landingPosition = GetLandingPosition(CalculateShootingDirection());
+
+        Vector2 landingPosition = GetLandingPosition();
 
         GameObject acorn = Instantiate(acornPrefab, selectedTree.transform.position, Quaternion.identity);
         acorn.GetComponent<Acorn>().goToPosition = landingPosition;
@@ -70,12 +73,22 @@ public class ShootingManager : MonoBehaviour
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 shootingDirection = (Vector2)selectedTree.transform.position - mousePosition;
 
+        // Make sure the acorn doesnt go to slow or too fast
+        if (shootingDirection.magnitude < minDistance)
+        {
+            shootingDirection = shootingDirection.normalized * minDistance;
+        }
+        else if (shootingDirection.magnitude > maxDistance)
+        {
+            shootingDirection = shootingDirection.normalized * maxDistance;
+        }
+
         return shootingDirection;
     }
 
-    private Vector2 GetLandingPosition(Vector2 shootingDirection)
+    private Vector2 GetLandingPosition()
     {
-        Vector2 distance = (shootingDirection - (Vector2)selectedTree.transform.position) * flyingTime;
+        Vector2 distance = ((Vector2)selectedTree.transform.position - (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition)) * flyingTime;
 
         if (distance.magnitude < minDistance)
         {
