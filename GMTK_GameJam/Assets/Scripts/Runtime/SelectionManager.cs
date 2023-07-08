@@ -7,11 +7,12 @@ public class SelectionManager : MonoBehaviour
 {
     public event EventHandler OnSelectTree;
 
-    private GameObject selectedTree;
+    //private GameObject selectedTree;
+    private Tree selectedTree;
 
     private void Start()
     {
-        selectedTree = GameObject.FindWithTag("tree");
+        selectedTree = GameObject.FindWithTag("tree").GetComponent<Tree>();
     }
 
     private void Update()
@@ -20,7 +21,7 @@ public class SelectionManager : MonoBehaviour
 
         if (focusedTree.HasValue && Input.GetMouseButtonDown(0))
         {
-            selectedTree = focusedTree.Value.collider.gameObject;
+            selectedTree = focusedTree.Value.collider.gameObject.GetComponent<Tree>();
             OnSelectTree?.Invoke(this, EventArgs.Empty);
         }
     }
@@ -40,8 +41,9 @@ public class SelectionManager : MonoBehaviour
         return null;
     }
 
-    public GameObject GetSelectedTree()
+    public Tree GetSelectedTree()
     {
+        Debug.Log(selectedTree);
         return selectedTree;
     }
 }

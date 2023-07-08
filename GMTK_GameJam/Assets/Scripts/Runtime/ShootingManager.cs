@@ -14,7 +14,7 @@ public class ShootingManager : MonoBehaviour
     [SerializeField] GameObject aimPoint;
 
     private bool isAiming;
-    private GameObject selectedTree;
+    private Tree selectedTree;
 
     private SelectionManager selectionManager;
 
@@ -41,7 +41,10 @@ public class ShootingManager : MonoBehaviour
         // Shoot
         else if (Input.GetMouseButtonUp(1))
         {
-            ShootAcorn();
+            if (selectedTree.canShoot)
+            {
+                ShootAcorn();
+            }
             isAiming = false;
             aimPoint.SetActive(false);
         }
@@ -63,6 +66,7 @@ public class ShootingManager : MonoBehaviour
 
         Vector2 landingPosition = GetLandingPosition();
 
+        selectedTree.canShoot = false;
         GameObject acorn = Instantiate(acornPrefab, selectedTree.transform.position, Quaternion.identity);
         acorn.GetComponent<Acorn>().goToPosition = landingPosition;
         acorn.GetComponent<Rigidbody2D>().AddForce(shootingDirection * shootingPower);
@@ -88,7 +92,8 @@ public class ShootingManager : MonoBehaviour
 
     private Vector2 GetLandingPosition()
     {
-        Vector2 distance = ((Vector2)selectedTree.transform.position - (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition)) * flyingTime;
+        Debug.Log(selectedTree);
+        Vector2 distance = ((Vector2)selectedTree.gameObject.transform.position - (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition)) * flyingTime;
 
         if (distance.magnitude < minDistance)
         {
