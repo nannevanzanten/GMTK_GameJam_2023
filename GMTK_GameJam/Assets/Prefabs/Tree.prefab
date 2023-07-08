@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1119295147
-  m_SortingLayer: 1
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 60ac3b4a0cfbf0e4aa78ae33908005d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -135,7 +135,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canShoot: 1
+  isDead: 0
   timeBetweenShooting: 3
+  Health: 20
 --- !u!114 &3314154831491388844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,9 +151,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   treeSprites:
-  - {fileID: 21300000, guid: 60ac3b4a0cfbf0e4aa78ae33908005d3, type: 3}
-  - {fileID: 21300000, guid: d1ffde67928afc84287f3073254bc7eb, type: 3}
-  - {fileID: 21300000, guid: 29cb8b440d8ded24ab49aaa6e77a958c, type: 3}
+  - {fileID: -1740571665, guid: c44ff839a24419649bd3c0997f1872f8, type: 3}
+  - {fileID: 165978238, guid: c44ff839a24419649bd3c0997f1872f8, type: 3}
+  - {fileID: 132137870, guid: c44ff839a24419649bd3c0997f1872f8, type: 3}
   spriteRenderer: {fileID: 8075033275566387891}
   timeToLevel1: 1
   timeToLevel2: 3
