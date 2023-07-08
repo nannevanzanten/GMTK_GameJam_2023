@@ -10,11 +10,13 @@ public class TreeBehaviour : MonoBehaviour
     [SerializeField] private float timeBetweenShooting;
     private float shootTime;
 
+    public int Health = 20;
+
     private void Update()
     {
         if (!canShoot)
         {
-            resetTimer();
+            ResetTimer();
         }
         else if (canShoot)
         {
@@ -22,7 +24,7 @@ public class TreeBehaviour : MonoBehaviour
         }
     }
 
-    private void resetTimer()
+    private void ResetTimer()
     {
         if (Time.time - shootTime > timeBetweenShooting)
         {

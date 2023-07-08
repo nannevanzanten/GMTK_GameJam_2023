@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LumberjackBehaviour : MonoBehaviour
@@ -12,6 +13,11 @@ public class LumberjackBehaviour : MonoBehaviour
     private readonly float _speed = 3f;
 
     private TreeBehaviour _closestTree;
+
+    private readonly int _damage = 1;
+    private float _damageInterval = 1;
+    private bool _canAttack;
+    private bool _isDead;
 
     private void Start()
     {
@@ -48,6 +54,23 @@ public class LumberjackBehaviour : MonoBehaviour
                 AttackTree();
                 break;
         }
+
+        if (!_canAttack)
+        {
+            ResetTimer();
+        }
+        else if (_canAttack)
+        {
+            _damageInterval = Time.time;
+        }
+    }
+
+    private void ResetTimer()
+    {
+        if (Time.time - _damageInterval > 1f)
+        {
+            _canAttack = true;
+        }
     }
 
     private TreeBehaviour GetClosestTree()
@@ -79,8 +102,23 @@ public class LumberjackBehaviour : MonoBehaviour
 
     private void AttackTree()
     {
-        TreeList.Trees.Remove(_closestTree);
-        StartCoroutine(_closestTree.KillTree());
-        _lumberState = LumberState.searching;
+        if (_canAttack)
+        {
+            _closestTree.Health -= 1;
+            _canAttack = false;
+        }
+
+        if (_closestTree.Health <= 0)
+        {
+            TreeList.Trees.Remove(_closestTree);
+            StartCoroutine(_closestTree.KillTree());
+            _lumberState = LumberState.searching;
+
+            _closestTree.Health = 0;
+
+            _isDead = true;
+
+            return;
+        }
     }
 }
