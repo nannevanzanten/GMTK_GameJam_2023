@@ -631,7 +631,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnPoints:
   - {fileID: 1862170335}
-  - {fileID: 352334240}
   LumberToSpawn: {fileID: 773466260711490553, guid: 4a11a9c921d1bcf43ac9c28dfd13941e, type: 3}
 --- !u!114 &1757788682
 MonoBehaviour:
