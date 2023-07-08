@@ -16,20 +16,29 @@ public class ShootingManager : MonoBehaviour
     private bool isAiming;
     private GameObject selectedTree;
 
+    private SelectionManager selectionManager;
+
+    private void Awake()
+    {
+        selectionManager = FindObjectOfType<SelectionManager>();
+
+        selectionManager.OnSelectTree += SelectionManager_OnSelectTree;
+    }
+
     private void Start()
     {
-        selectedTree = GameObject.FindWithTag("tree");
+        selectedTree = selectionManager.GetSelectedTree();
     }
 
     private void Update()
     {
         // Start aiming
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             isAiming = true;
         }
         // Shoot
-        else if (Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(1))
         {
             ShootAcorn();
             isAiming = false;
@@ -41,12 +50,17 @@ public class ShootingManager : MonoBehaviour
         }
     }
 
+    private void SelectionManager_OnSelectTree(object sender, System.EventArgs e)
+    {
+        selectedTree = selectionManager.GetSelectedTree();
+    }
+
     private void ShootAcorn()
     {
         Vector2 shootingDirection = CalculateShootingDirection();
         Vector2 landingPosition = GetLandingPosition(CalculateShootingDirection());
 
-        GameObject acorn = Instantiate(acornPrefab, gameObject.transform);
+        GameObject acorn = Instantiate(acornPrefab, selectedTree.transform.position, Quaternion.identity);
         acorn.GetComponent<Acorn>().goToPosition = landingPosition;
         acorn.GetComponent<Rigidbody2D>().AddForce(shootingDirection * shootingPower);
     }
