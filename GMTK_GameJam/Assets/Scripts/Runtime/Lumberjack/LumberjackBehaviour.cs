@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LumberjackBehaviour : MonoBehaviour
@@ -14,10 +15,8 @@ public class LumberjackBehaviour : MonoBehaviour
     private TreeBehaviour _closestTree;
 
     private readonly int _damage = 1;
-    private float _damageInterval = 3f;
-    private float _timeBetweenHits = 1f;
+    private float _damageInterval = 1;
     private bool _canAttack;
-    private bool _isDead;
 
     private void Start()
     {
@@ -51,23 +50,23 @@ public class LumberjackBehaviour : MonoBehaviour
                 break;
 
             case LumberState.attacking:
-                AttackTree();
+                if (_canAttack)
+                {
+                    _canAttack = false;
+                    _damageInterval = Time.time;
+                    AttackTree();
+                }
+                else
+                {
+                    ResetTimer();
+                }
                 break;
-        }
-
-        if (!_canAttack)
-        {
-            ResetTimer();
-        }
-        else if (_canAttack)
-        {
-            _damageInterval = Time.time;
         }
     }
 
     private void ResetTimer()
     {
-        if (Time.time - _damageInterval > _timeBetweenHits)
+        if (Time.time - _damageInterval > 1f)
         {
             _canAttack = true;
         }
@@ -102,19 +101,14 @@ public class LumberjackBehaviour : MonoBehaviour
 
     private void AttackTree()
     {
-        if (_canAttack)
-        {
-            _closestTree.Health -= _damage;
-            _canAttack = false;
-        }
+        _closestTree.Health -= _damage;
 
         if (_closestTree.Health <= 0)
         {
             _closestTree.Health = 0;
-            _isDead = true;
-
             TreeList.Trees.Remove(_closestTree);
             StartCoroutine(_closestTree.KillTree());
+            
             _lumberState = LumberState.searching;
 
             return;

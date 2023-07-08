@@ -10,7 +10,7 @@ public class TreeBehaviour : MonoBehaviour
     [SerializeField] private float timeBetweenShooting;
     private float shootTime;
 
-    public int Health = 20;
+    public int Health;
 
     private void Update()
     {
