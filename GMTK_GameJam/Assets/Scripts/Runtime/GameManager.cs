@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     private TimeCycle timeCycle;
     private LumberjackSpawnPoint lumberjackSpawnPoint;
 
+    private int treeScore;
+
     private int lumberJacksToSpawn;
 
     private void Awake()
@@ -21,6 +23,16 @@ public class GameManager : MonoBehaviour
     {
         lumberJacksToSpawn = timeCycle.GetDayCount();
         lumberjackSpawnPoint.SpawnLumberJacks(lumberJacksToSpawn);
+    }
+
+    public void AddTreeScore()
+    {
+        treeScore++;
+    }
+
+    public int GetTreeScore()
+    {
+        return treeScore;
     }
 
 

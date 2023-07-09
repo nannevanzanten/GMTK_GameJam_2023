@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class LumberjackBehaviour : MonoBehaviour
 {
-    private enum LumberState { attacking, searching, walking }
+    private enum LumberState { attacking, searching, walking}
 
     private LumberState _lumberState;
 
@@ -28,6 +28,7 @@ public class LumberjackBehaviour : MonoBehaviour
         switch (_lumberState)
         {
             case LumberState.searching:
+
                 //Search for the closest tree
                 _closestTree = GetClosestTree();
                 _lumberState = LumberState.walking;
