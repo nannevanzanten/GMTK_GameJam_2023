@@ -22,6 +22,11 @@ public class TreeBehaviour : MonoBehaviour
         {
             shootTime = Time.time;
         }
+
+        if (Health <= 0)
+        {
+            StartCoroutine(KillTree());
+        }
     }
 
     private void ResetTimer()
