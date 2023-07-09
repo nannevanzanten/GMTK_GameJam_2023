@@ -177,7 +177,6 @@ public class LumberjackBehaviour : MonoBehaviour
 
     private void WalkToClosestHouse()
     {
-        Debug.Log(_closestHouse);
         transform.position = Vector2.MoveTowards(transform.position, _closestHouse.transform.position, _speed * Time.deltaTime);
     }
 
