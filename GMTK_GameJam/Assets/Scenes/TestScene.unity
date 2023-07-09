@@ -235,6 +235,88 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &155777433 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3658377447474972600, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+  m_PrefabInstance: {fileID: 2114935886}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &155777435 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+  m_PrefabInstance: {fileID: 2114935886}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &360542474 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8805422237181751356, guid: b73e98b0aedb3694f8c02caff6969167, type: 3}
+  m_PrefabInstance: {fileID: 6974224204545868686}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbdc56a66c464b546bdb20dad7018417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &395155682
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1026921244}
+    m_Modifications:
+    - target: {fileID: 3658377447474972600, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_Name
+      value: LumberJackSpawnpoint (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.569904
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.232658
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.08781473
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
 --- !u!1 &611352088
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,174 +751,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 729346471}
   m_CullTransparentMesh: 1
---- !u!1 &729663760
+--- !u!1 &754645744 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 3658377447474972600, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+  m_PrefabInstance: {fileID: 1743206228}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 729663761}
-  - component: {fileID: 729663762}
-  m_Layer: 0
-  m_Name: LumberJackSpawnpoint (2)
-  m_TagString: LumberSpawner
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &729663761
+--- !u!4 &754645746 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+  m_PrefabInstance: {fileID: 1743206228}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729663760}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.46, y: 6.65, z: 0.08781473}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1026921244}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &729663762
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729663760}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2043481367
-  m_SortingLayer: 6
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -2093354644, guid: 2524accfcb3cc48468e0743deeccffb3, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!1 &944723871
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 944723872}
-  - component: {fileID: 944723873}
-  m_Layer: 0
-  m_Name: LumberJackSpawnpoint (3)
-  m_TagString: LumberSpawner
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &944723872
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 944723871}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.43, y: -4.48, z: 0.08781473}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1026921244}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &944723873
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 944723871}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2043481367
-  m_SortingLayer: 6
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -2093354644, guid: 2524accfcb3cc48468e0743deeccffb3, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &1026921243
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,9 +792,9 @@ Transform:
   - {fileID: 1232217209}
   - {fileID: 1731548223}
   - {fileID: 1675998680}
-  - {fileID: 1390602889}
-  - {fileID: 729663761}
-  - {fileID: 944723872}
+  - {fileID: 155777435}
+  - {fileID: 1928934830}
+  - {fileID: 754645746}
   m_Father: {fileID: 1122872729}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1012,9 +936,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnPoints:
   - {fileID: 1675998679}
-  - {fileID: 1390602888}
-  - {fileID: 729663760}
-  - {fileID: 944723871}
+  - {fileID: 155777433}
+  - {fileID: 1928934828}
+  - {fileID: 754645744}
   LumberToSpawn: {fileID: 773466260711490553, guid: 4a11a9c921d1bcf43ac9c28dfd13941e, type: 3}
 --- !u!1001 &1372195228
 PrefabInstance:
@@ -15177,90 +15101,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 761b53d9cba2b50488e515d935920bd3, type: 3}
---- !u!1 &1390602888
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1390602889}
-  - component: {fileID: 1390602890}
-  m_Layer: 0
-  m_Name: LumberJackSpawnpoint (1)
-  m_TagString: LumberSpawner
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1390602889
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1390602888}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.98, y: -4.18, z: 0.08781473}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1026921244}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1390602890
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1390602888}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2043481367
-  m_SortingLayer: 6
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -2093354644, guid: 2524accfcb3cc48468e0743deeccffb3, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &1591249095
 GameObject:
   m_ObjectHideFlags: 0
@@ -15353,90 +15193,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1675998679
+--- !u!1 &1675998679 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 3658377447474972600, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+  m_PrefabInstance: {fileID: 4802085226191794149}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1675998680}
-  - component: {fileID: 1675998681}
-  m_Layer: 0
-  m_Name: LumberJackSpawnpoint
-  m_TagString: LumberSpawner
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1675998680
+--- !u!4 &1675998680 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+  m_PrefabInstance: {fileID: 4802085226191794149}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1675998679}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.5, y: 5.55, z: 0.08781473}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1026921244}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1675998681
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1675998679}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2043481367
-  m_SortingLayer: 6
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -2093354644, guid: 2524accfcb3cc48468e0743deeccffb3, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &1731548221
 GameObject:
   m_ObjectHideFlags: 0
@@ -15481,6 +15247,77 @@ Transform:
   m_Father: {fileID: 1026921244}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1743206228
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1026921244}
+    m_Modifications:
+    - target: {fileID: 3658377447474972600, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_Name
+      value: LumberJackSpawnpoint (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.753012
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.5503216
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.08781473
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+--- !u!1 &1928934828 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3658377447474972600, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+  m_PrefabInstance: {fileID: 395155682}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1928934830 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+  m_PrefabInstance: {fileID: 395155682}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1999002322
 GameObject:
   m_ObjectHideFlags: 0
@@ -15525,6 +15362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a1ddfc8a6d605a4dac7cd808a76c802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedTree: {fileID: 360542474}
 --- !u!1 &2022662710
 GameObject:
   m_ObjectHideFlags: 0
@@ -15576,6 +15414,128 @@ MonoBehaviour:
   minDistance: 2
   maxDistance: 7
   aimPoint: {fileID: 1111679419}
+--- !u!1001 &2114935886
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1026921244}
+    m_Modifications:
+    - target: {fileID: 3658377447474972600, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_Name
+      value: LumberJackSpawnpoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.8524065
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.3143477
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.08781473
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+--- !u!1001 &4802085226191794149
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1026921244}
+    m_Modifications:
+    - target: {fileID: 3658377447474972600, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_Name
+      value: LumberJackSpawnpoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.08781473
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555155608442946751, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1be22234ff60bc84d84c10d124cc6311, type: 3}
 --- !u!1001 &6974224204545868686
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15631,6 +15591,10 @@ PrefabInstance:
     - target: {fileID: 7729360495874530202, guid: b73e98b0aedb3694f8c02caff6969167, type: 3}
       propertyPath: m_Name
       value: Big Tree
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729360495874530202, guid: b73e98b0aedb3694f8c02caff6969167, type: 3}
+      propertyPath: m_TagString
+      value: BigTree
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
