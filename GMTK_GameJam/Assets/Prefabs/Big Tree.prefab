@@ -138,7 +138,7 @@ MonoBehaviour:
   isDead: 0
   _throwNut: {fileID: 8300000, guid: b63de033bedbc904aa86d8c358c34b6e, type: 3}
   _landNut: {fileID: 8300000, guid: 9413c8d806570b047ba78eb20cf89aed, type: 3}
-  _nutSource: {fileID: 0}
+  _nutSource: {fileID: -420773120810373969}
   timeBetweenShooting: 2
   Health: 20
 --- !u!82 &-420773120810373969
@@ -153,7 +153,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
