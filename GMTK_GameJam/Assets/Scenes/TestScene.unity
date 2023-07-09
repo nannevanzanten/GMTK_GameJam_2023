@@ -386,6 +386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cycle: {fileID: 611352091}
+  _lumber: {fileID: 0}
 --- !u!1 &639033184
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,7 +562,7 @@ GameObject:
   - component: {fileID: 729663762}
   m_Layer: 0
   m_Name: LumberJackSpawnpoint (2)
-  m_TagString: Untagged
+  m_TagString: LumberSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -645,7 +646,7 @@ GameObject:
   - component: {fileID: 944723873}
   m_Layer: 0
   m_Name: LumberJackSpawnpoint (3)
-  m_TagString: Untagged
+  m_TagString: LumberSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -799,6 +800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cycle: {fileID: 611352091}
+  _lumber: {fileID: 0}
 --- !u!1 &1111679419 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2105107579341346433, guid: b6e528561808d6242900ca97d2aef980, type: 3}
@@ -15068,7 +15070,7 @@ GameObject:
   - component: {fileID: 1390602890}
   m_Layer: 0
   m_Name: LumberJackSpawnpoint (1)
-  m_TagString: Untagged
+  m_TagString: LumberSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15244,7 +15246,7 @@ GameObject:
   - component: {fileID: 1675998681}
   m_Layer: 0
   m_Name: LumberJackSpawnpoint
-  m_TagString: Untagged
+  m_TagString: LumberSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

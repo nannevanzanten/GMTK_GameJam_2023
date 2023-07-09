@@ -132,7 +132,6 @@ public class LumberjackBehaviour : MonoBehaviour
         {
             _closestTree.Health = 0;
             TreeList.Trees.Remove(_closestTree);
-            StartCoroutine(_closestTree.KillTree());
             
             _lumberState = LumberState.searching;
 
@@ -147,7 +146,7 @@ public class LumberjackBehaviour : MonoBehaviour
         WalkToClosestHouse();
     }
 
-    private GameObject FindClosestHouse()
+    private void FindClosestHouse()
     {
         _spawnPoint.SpawnPoints = GameObject.FindGameObjectsWithTag("LumberSpawner");
         float maxDst = Mathf.Infinity;
@@ -161,12 +160,11 @@ public class LumberjackBehaviour : MonoBehaviour
                 maxDst = dst;
             }
         }
-
-        return _closestHouse;
     }
 
     private void WalkToClosestHouse()
     {
+        Debug.Log(_closestHouse);
         transform.position = Vector2.MoveTowards(transform.position, _closestHouse.transform.position, _speed * Time.deltaTime);
     }
 
