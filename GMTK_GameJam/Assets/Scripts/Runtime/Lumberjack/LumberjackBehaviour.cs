@@ -5,28 +5,32 @@ using UnityEngine;
 
 public class LumberjackBehaviour : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D _rb;
-
-    private GameObject bigTree;
-
-    private TreeBehaviour _closestTree;
-    private TimeCycle _timeCycle;
-    private LumberjackSpawnPoint _spawnPoint;
-    private GameObject _closestHouse;
-    private GameManager _gameManager;
-
     private enum LumberState { attacking, searching, walking, sleeping, finishing }
-
     private LumberState _lumberState;
 
-    private readonly float _speed = 3f;
+    [SerializeField] private Rigidbody2D _rb;
+    [SerializeField] private AudioClip _chopWood;
 
+    private GameObject bigTree;
+    private TreeBehaviour _closestTree;
+    private TimeCycle _timeCycle;
+
+    private LumberjackSpawnPoint _spawnPoint;
+    private GameObject _closestHouse;
+
+    private GameManager _gameManager;
+    private AudioSource _mySource;
+
+    private readonly float _speed = 3f;
     private readonly int _damage = 1;
+
     private float _damageInterval = 1;
     private bool _canAttack;
 
     private void Start()
     {
+        _mySource = FindObjectOfType<AudioSource>();
+        _mySource.clip = _chopWood;
         _spawnPoint = FindObjectOfType<LumberjackSpawnPoint>();
         _timeCycle = FindObjectOfType<TimeCycle>();
         _gameManager = FindObjectOfType<GameManager>();
@@ -77,6 +81,7 @@ public class LumberjackBehaviour : MonoBehaviour
             case LumberState.attacking:
                 if (_canAttack)
                 {
+                    _mySource.Play();
                     _canAttack = false;
                     _damageInterval = Time.time;
                     AttackTree();
