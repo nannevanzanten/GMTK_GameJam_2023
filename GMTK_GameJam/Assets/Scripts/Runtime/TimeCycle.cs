@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TimeCycle : MonoBehaviour
 {
-    [SerializeField] private GameObject _nightSprite;
+    [SerializeField] private AnimationClip _nightSprite;
+    private Animation _anim;
 
     private float _time;
     private float _dayLength = 100f;
@@ -16,13 +17,14 @@ public class TimeCycle : MonoBehaviour
 
     void Start()
     {
+        _anim.clip = _nightSprite;
         _isDay = true;
         StartDay();
     }
 
     void Update()
     {
-        _time += Time.time;
+        _time += Time.deltaTime;
 
         if (_time >= _dayLength)
         {
@@ -39,21 +41,13 @@ public class TimeCycle : MonoBehaviour
 
     private void StartDay()
     {
-        _nightSprite.SetActive(false);
         _dayCount++;
+
+        _time = 0f;
     }
 
     private void StartNight()
     {
-        _nightSprite.SetActive(true);
-        _time = 0f;
-    }
-
-    IEnumerator FadeSprite()
-    {
-        var b = _nightSprite.GetComponent<SpriteRenderer>().color.a;
-        b += Time.time;
-
-        yield return new WaitForSeconds(1f);
+        _anim.Play();
     }
 }
