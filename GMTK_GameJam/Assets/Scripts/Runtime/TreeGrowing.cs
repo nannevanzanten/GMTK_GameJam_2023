@@ -12,12 +12,19 @@ public class TreeGrowing : MonoBehaviour
 
     [SerializeField] private int treeLevel = 0;
 
+    [SerializeField] private TreeBehaviour tree;
+
     private bool isPlanted;
 
     private float timeOfPlanting;
 
     private void Update()
     {
+        if (treeLevel < 2)
+        {
+            tree.canShoot = false;
+        }
+
         // Only runs once when planted
         if (!isPlanted)
         {
