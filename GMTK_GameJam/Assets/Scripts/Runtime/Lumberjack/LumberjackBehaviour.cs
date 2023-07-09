@@ -5,23 +5,29 @@ using UnityEngine;
 
 public class LumberjackBehaviour : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D _rb;
-    private TreeBehaviour _closestTree;
-    private TimeCycle _timeCycle;
-    private LumberjackSpawnPoint _spawnPoint;
-    private GameObject _closestHouse;
     private enum LumberState { attacking, searching, walking, sleeping }
-
     private LumberState _lumberState;
 
-    private readonly float _speed = 3f;
+    [SerializeField] private Rigidbody2D _rb;
+    [SerializeField] private AudioClip _chopWood;
+    private AudioSource _mySource;
 
+    private TreeBehaviour _closestTree;
+    private TimeCycle _timeCycle;
+
+    private LumberjackSpawnPoint _spawnPoint;
+    private GameObject _closestHouse;
+
+    private readonly float _speed = 3f;
     private readonly int _damage = 1;
+
     private float _damageInterval = 1;
     private bool _canAttack;
 
     private void Start()
     {
+        _mySource = GetComponent<AudioSource>();
+        _mySource.clip = _chopWood;
         _spawnPoint = FindObjectOfType<LumberjackSpawnPoint>();
         _timeCycle = FindObjectOfType<TimeCycle>();
         _lumberState = LumberState.searching;
@@ -59,6 +65,7 @@ public class LumberjackBehaviour : MonoBehaviour
             case LumberState.attacking:
                 if (_canAttack)
                 {
+                    _mySource.Play();
                     _canAttack = false;
                     _damageInterval = Time.time;
                     AttackTree();
@@ -147,7 +154,6 @@ public class LumberjackBehaviour : MonoBehaviour
     private void LumberSleep()
     {
         // Walk to house and commit suicide
-        //FindClosestHouse();
         WalkToClosestHouse();
     }
 
