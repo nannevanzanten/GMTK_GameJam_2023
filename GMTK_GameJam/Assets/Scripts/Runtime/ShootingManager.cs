@@ -68,6 +68,12 @@ public class ShootingManager : MonoBehaviour
 
     private void ShootAcorn()
     {
+        if (selectedTree._nutSource != null)
+        {
+            selectedTree._nutSource.clip = selectedTree._throwNut;
+            selectedTree._nutSource.Play();
+        }
+
         Vector2 shootingDirection = CalculateShootingDirection();
 
         Vector2 landingPosition = GetLandingPosition();

@@ -7,10 +7,19 @@ public class TreeBehaviour : MonoBehaviour
     public bool canShoot = true;
     public bool isDead = false;
 
+    public AudioClip _throwNut;
+    public AudioClip _landNut;
+    public AudioSource _nutSource;
+
     [SerializeField] private float timeBetweenShooting;
     private float shootTime;
 
     public int Health;
+
+    private void Start()
+    {
+        _nutSource = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
