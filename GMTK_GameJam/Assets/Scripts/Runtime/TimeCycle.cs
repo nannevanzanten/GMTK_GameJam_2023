@@ -6,10 +6,12 @@ using UnityEngine;
 public class TimeCycle : MonoBehaviour
 {
     public event EventHandler OnStartDay;
+    public event EventHandler OnStartNight;
 
     private static readonly int IsNight = Animator.StringToHash("IsNight");
 
-    [SerializeField] private Animator _cycle; 
+    [SerializeField] private Animator _cycle;
+    [SerializeField] private LumberjackBehaviour _lumber;
 
     private float _time;
     private float _dayLength = 10f;
@@ -53,6 +55,8 @@ public class TimeCycle : MonoBehaviour
 
     private void StartNight()
     {
+        OnStartNight?.Invoke(this, EventArgs.Empty);
+
         _isDay = false;
         gameObject.GetComponent<Animator>().SetBool(IsNight, true);
     }

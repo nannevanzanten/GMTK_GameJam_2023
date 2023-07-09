@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LumberjackSpawnPoint : MonoBehaviour
 {
-    [SerializeField] private GameObject[] SpawnPoints;
+    public GameObject[] SpawnPoints;
     [SerializeField] private GameObject LumberToSpawn;
 
     public void SpawnLumberJacks(int lumberJacksToSpawn)
