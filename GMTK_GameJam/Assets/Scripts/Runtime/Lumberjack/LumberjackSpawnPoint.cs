@@ -14,4 +14,14 @@ public class LumberjackSpawnPoint : MonoBehaviour
             Instantiate(LumberToSpawn, SpawnPoints[i].transform.position, Quaternion.identity);
         }
     }
+
+    private void SpawnLumberJacks(int lumberJacksToSpawn)
+    {
+        for (int i = 0; i < lumberJacksToSpawn; i++)
+        {
+            GameObject randomSpawnPoint = SpawnPoints[Random.Range(0, SpawnPoints.Length)];
+
+            Instantiate(LumberToSpawn, randomSpawnPoint.transform.position, Quaternion.identity);
+        }
+    }
 }
