@@ -177,6 +177,8 @@ GameObject:
   m_Component:
   - component: {fileID: 611352090}
   - component: {fileID: 611352089}
+  - component: {fileID: 611352091}
+  - component: {fileID: 611352092}
   m_Layer: 0
   m_Name: NightLayer
   m_TagString: Untagged
@@ -251,6 +253,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &611352091
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611352088}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 653fd276ad7101640b7f62d49a74b9ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &611352092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611352088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 156c57b47d5346b4b9bd0e34510ab4fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cycle: {fileID: 611352091}
 --- !u!1001 &639977657
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -560,12 +596,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1038072285}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 156c57b47d5346b4b9bd0e34510ab4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nightSprite: {fileID: 611352088}
+  _cycle: {fileID: 611352091}
 --- !u!1 &1111679419 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2105107579341346433, guid: b6e528561808d6242900ca97d2aef980, type: 3}
