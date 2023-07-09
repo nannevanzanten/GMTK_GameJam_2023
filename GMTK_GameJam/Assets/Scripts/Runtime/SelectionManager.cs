@@ -28,7 +28,7 @@ public class SelectionManager : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
 
-        if (hit == true && hit.collider.gameObject.tag == "tree")
+        if (hit == true && (hit.collider.gameObject.tag == "tree" || hit.collider.gameObject.tag == "BigTree"))
         {
             return hit;
         }
