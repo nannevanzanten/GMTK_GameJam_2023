@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TimeCycle : MonoBehaviour
 {
-
+    [SerializeField] private GameObject _spawnPoints;
 
     void Start()
     {
