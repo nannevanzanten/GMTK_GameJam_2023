@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
 public class LumberjackBehaviour : MonoBehaviour
@@ -42,6 +41,7 @@ public class LumberjackBehaviour : MonoBehaviour
 
             case LumberState.walking:
                 // If the tree has been destroyed search for new one
+                FaceObject(_closestTree.gameObject);
                 if (_closestTree.isDead)
                 {
                     _lumberState = LumberState.searching;
@@ -70,19 +70,24 @@ public class LumberjackBehaviour : MonoBehaviour
                 break;
 
             case LumberState.sleeping:
+                _closestHouse = FindClosestHouse();
+                FaceObject(_closestHouse);
                 LumberSleep();
+
                 if (GetDistanceToHouse(_closestHouse) < 0.001f)
                 {
                     Destroy(gameObject);
                 }
                 break;
         }
+    }
 
-        //Needs fix
-        if (_rb.velocity.x > 0) 
+    private void FaceObject(GameObject obj)
+    {
+        if (obj.transform.position.x < gameObject.transform.position.x)
         {
             gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
-        } 
+        }
         else
         {
             gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
@@ -142,11 +147,11 @@ public class LumberjackBehaviour : MonoBehaviour
     private void LumberSleep()
     {
         // Walk to house and commit suicide
-        FindClosestHouse();
+        //FindClosestHouse();
         WalkToClosestHouse();
     }
 
-    private void FindClosestHouse()
+    private GameObject FindClosestHouse()
     {
         _spawnPoint.SpawnPoints = GameObject.FindGameObjectsWithTag("LumberSpawner");
         float maxDst = Mathf.Infinity;
@@ -160,6 +165,8 @@ public class LumberjackBehaviour : MonoBehaviour
                 maxDst = dst;
             }
         }
+
+        return _closestHouse;
     }
 
     private void WalkToClosestHouse()
