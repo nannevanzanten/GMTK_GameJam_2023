@@ -151,7 +151,7 @@ public class LumberjackBehaviour : MonoBehaviour
         WalkToClosestHouse();
     }
 
-    private void FindClosestHouse()
+    private GameObject FindClosestHouse()
     {
         _spawnPoint.SpawnPoints = GameObject.FindGameObjectsWithTag("LumberSpawner");
         float maxDst = Mathf.Infinity;
@@ -165,6 +165,8 @@ public class LumberjackBehaviour : MonoBehaviour
                 maxDst = dst;
             }
         }
+
+        return _closestHouse;
     }
 
     private void WalkToClosestHouse()
