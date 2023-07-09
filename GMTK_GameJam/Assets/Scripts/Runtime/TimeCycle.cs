@@ -7,7 +7,9 @@ public class TimeCycle : MonoBehaviour
 {
     public event EventHandler OnStartDay;
 
-    [SerializeField] private GameObject _nightSprite;
+    private static readonly int IsNight = Animator.StringToHash("IsNight");
+
+    [SerializeField] private Animator _cycle; 
 
     private float _time;
     private float _dayLength = 10f;
@@ -29,12 +31,10 @@ public class TimeCycle : MonoBehaviour
 
         if (_time >= _dayLength)
         {
-            _isDay = false;
             StartNight();
 
             if (_time > _dayLength + _nightLength)
             {
-                _isDay = true;
                 StartDay();
             }
         }
@@ -44,14 +44,17 @@ public class TimeCycle : MonoBehaviour
     {
         OnStartDay?.Invoke(this, EventArgs.Empty);
 
-        _nightSprite.SetActive(false);
+        gameObject.GetComponent<Animator>().SetBool(IsNight, false);
+        _isDay = true;
+
         _time = 0f;
         _dayCount++;
     }
 
     private void StartNight()
     {
-        _nightSprite.SetActive(true);
+        _isDay = false;
+        gameObject.GetComponent<Animator>().SetBool(IsNight, true);
     }
 
     public int GetDayCount()
