@@ -1,18 +1,20 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TreeEditor;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class LumberjackBehaviour : MonoBehaviour
 {
+    [SerializeField] private Rigidbody2D _rb;
+    private TreeBehaviour _closestTree;
     private enum LumberState { attacking, searching, walking }
 
     private LumberState _lumberState;
 
     private readonly float _speed = 3f;
-
-    private TreeBehaviour _closestTree;
 
     private readonly int _damage = 1;
     private float _damageInterval = 1;
@@ -61,6 +63,15 @@ public class LumberjackBehaviour : MonoBehaviour
                     ResetTimer();
                 }
                 break;
+        }
+
+        if (_rb.velocity.x > 0) 
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        } 
+        else
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
         }
     }
 
