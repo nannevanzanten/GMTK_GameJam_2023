@@ -1,13 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TimeCycle : MonoBehaviour
 {
+    public event EventHandler OnStartDay;
+
     [SerializeField] private GameObject _nightSprite;
 
     private float _time;
-    private float _dayLength = 100f;
+    private float _dayLength = 10f;
     private float _nightLength = 5f;
 
     private int _dayCount = 0;
@@ -22,7 +25,7 @@ public class TimeCycle : MonoBehaviour
 
     void Update()
     {
-        _time += Time.time;
+        _time += Time.deltaTime;
 
         if (_time >= _dayLength)
         {
@@ -39,21 +42,25 @@ public class TimeCycle : MonoBehaviour
 
     private void StartDay()
     {
+        OnStartDay?.Invoke(this, EventArgs.Empty);
+
         _nightSprite.SetActive(false);
+        _time = 0f;
         _dayCount++;
     }
 
     private void StartNight()
     {
         _nightSprite.SetActive(true);
-        _time = 0f;
     }
 
-    IEnumerator FadeSprite()
+    public int GetDayCount()
     {
-        var b = _nightSprite.GetComponent<SpriteRenderer>().color.a;
-        b += Time.time;
+        return _dayCount;
+    }
 
-        yield return new WaitForSeconds(1f);
+    public bool GetIsDay()
+    {
+        return _isDay;
     }
 }
