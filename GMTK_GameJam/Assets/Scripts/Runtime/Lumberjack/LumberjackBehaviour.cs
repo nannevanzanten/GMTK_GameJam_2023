@@ -1,18 +1,21 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
 public class LumberjackBehaviour : MonoBehaviour
 {
-    private enum LumberState { attacking, searching, walking}
+    [SerializeField] private Rigidbody2D _rb;
+    private TreeBehaviour _closestTree;
+    private TimeCycle _timeCycle;
+    private LumberjackSpawnPoint _spawnPoint;
+    private GameObject _closestHouse;
+    private enum LumberState { attacking, searching, walking, sleeping }
 
     private LumberState _lumberState;
 
     private readonly float _speed = 3f;
-
-    private TreeBehaviour _closestTree;
 
     private readonly int _damage = 1;
     private float _damageInterval = 1;
@@ -20,7 +23,11 @@ public class LumberjackBehaviour : MonoBehaviour
 
     private void Start()
     {
+        _spawnPoint = FindObjectOfType<LumberjackSpawnPoint>();
+        _timeCycle = FindObjectOfType<TimeCycle>();
         _lumberState = LumberState.searching;
+
+        _timeCycle.OnStartNight += TimeCycle_OnStartNight;
     }
 
     private void Update()
@@ -28,7 +35,6 @@ public class LumberjackBehaviour : MonoBehaviour
         switch (_lumberState)
         {
             case LumberState.searching:
-
                 //Search for the closest tree
                 _closestTree = GetClosestTree();
                 _lumberState = LumberState.walking;
@@ -62,6 +68,24 @@ public class LumberjackBehaviour : MonoBehaviour
                     ResetTimer();
                 }
                 break;
+
+            case LumberState.sleeping:
+                LumberSleep();
+                if (GetDistanceToHouse(_closestHouse) < 0.001f)
+                {
+                    Destroy(gameObject);
+                }
+                break;
+        }
+
+        //Needs fix
+        if (_rb.velocity.x > 0) 
+        {
+            gameObject.transform.eulerAngles = new Vector3(0, 180, 0);
+        } 
+        else
+        {
+            gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
         }
     }
 
@@ -114,5 +138,46 @@ public class LumberjackBehaviour : MonoBehaviour
 
             return;
         }
+    }
+
+    private void LumberSleep()
+    {
+        // Walk to house and commit suicide
+        FindClosestHouse();
+        WalkToClosestHouse();
+    }
+
+    private GameObject FindClosestHouse()
+    {
+        _spawnPoint.SpawnPoints = GameObject.FindGameObjectsWithTag("LumberSpawner");
+        float maxDst = Mathf.Infinity;
+
+        foreach (GameObject go in _spawnPoint.SpawnPoints)
+        {
+            float dst = Vector2.Distance(gameObject.transform.position, go.transform.position);
+            if (dst < maxDst)
+            {
+                _closestHouse = go;
+                maxDst = dst;
+            }
+        }
+
+        return _closestHouse;
+    }
+
+    private void WalkToClosestHouse()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, _closestHouse.transform.position, _speed * Time.deltaTime);
+    }
+
+    private float GetDistanceToHouse(GameObject house)
+    {
+        Vector2 dstVector = transform.position - house.transform.position;
+        return dstVector.magnitude;
+    }
+
+    private void TimeCycle_OnStartNight(object sender, System.EventArgs e)
+    {
+        _lumberState = LumberState.sleeping;
     }
 }

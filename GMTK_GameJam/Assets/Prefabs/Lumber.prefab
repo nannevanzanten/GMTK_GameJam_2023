@@ -126,6 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a78d05234d14674293ab0f449afdeb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rb: {fileID: 2713039954778044020}
+  _houses: []
 --- !u!1 &4514277701313852734
 GameObject:
   m_ObjectHideFlags: 0
