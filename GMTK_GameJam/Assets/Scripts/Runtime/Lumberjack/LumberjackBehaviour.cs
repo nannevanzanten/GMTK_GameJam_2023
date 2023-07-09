@@ -5,31 +5,32 @@ using UnityEngine;
 
 public class LumberjackBehaviour : MonoBehaviour
 {
-    private enum LumberState { attacking, searching, walking, sleeping }
-    private LumberState _lumberState;
-
     [SerializeField] private Rigidbody2D _rb;
-    [SerializeField] private AudioClip _chopWood;
-    private AudioSource _mySource;
+
+    private GameObject bigTree;
 
     private TreeBehaviour _closestTree;
     private TimeCycle _timeCycle;
-
     private LumberjackSpawnPoint _spawnPoint;
     private GameObject _closestHouse;
+    private GameManager _gameManager;
+
+    private enum LumberState { attacking, searching, walking, sleeping, finishing }
+
+    private LumberState _lumberState;
 
     private readonly float _speed = 3f;
-    private readonly int _damage = 1;
 
+    private readonly int _damage = 1;
     private float _damageInterval = 1;
     private bool _canAttack;
 
     private void Start()
     {
-        _mySource = GetComponent<AudioSource>();
-        _mySource.clip = _chopWood;
         _spawnPoint = FindObjectOfType<LumberjackSpawnPoint>();
         _timeCycle = FindObjectOfType<TimeCycle>();
+        _gameManager = FindObjectOfType<GameManager>();
+
         _lumberState = LumberState.searching;
 
         _timeCycle.OnStartNight += TimeCycle_OnStartNight;
@@ -40,6 +41,13 @@ public class LumberjackBehaviour : MonoBehaviour
         switch (_lumberState)
         {
             case LumberState.searching:
+                // If there are no trees go to finish state
+                if (TreeList.Trees.Count == 0)
+                {
+                    _lumberState = LumberState.finishing;
+                    break;
+                }
+
                 //Search for the closest tree
                 _closestTree = GetClosestTree();
                 _lumberState = LumberState.walking;
@@ -47,7 +55,11 @@ public class LumberjackBehaviour : MonoBehaviour
 
             case LumberState.walking:
                 // If the tree has been destroyed search for new one
-                FaceObject(_closestTree.gameObject);
+                if (TreeList.Trees.Count > 0)
+                {
+                    FaceObject(_closestTree.gameObject);
+                }
+
                 if (_closestTree.isDead)
                 {
                     _lumberState = LumberState.searching;
@@ -65,7 +77,6 @@ public class LumberjackBehaviour : MonoBehaviour
             case LumberState.attacking:
                 if (_canAttack)
                 {
-                    _mySource.Play();
                     _canAttack = false;
                     _damageInterval = Time.time;
                     AttackTree();
@@ -85,6 +96,22 @@ public class LumberjackBehaviour : MonoBehaviour
                 {
                     Destroy(gameObject);
                 }
+                break;
+
+            case LumberState.finishing:
+                // If there is a new tree return to search state
+                if (TreeList.Trees.Count > 0)
+                {
+                    _lumberState = LumberState.searching;
+                    break;
+                }
+
+                if (bigTree == null)
+                {
+                    bigTree = GameObject.FindGameObjectWithTag("BigTree");
+                }
+
+                AttackBigTree();
                 break;
         }
     }
@@ -189,5 +216,15 @@ public class LumberjackBehaviour : MonoBehaviour
     private void TimeCycle_OnStartNight(object sender, System.EventArgs e)
     {
         _lumberState = LumberState.sleeping;
+    }
+
+    private void AttackBigTree()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, bigTree.transform.position, _speed * Time.deltaTime);
+
+        if (GetDistanceToHouse(bigTree) < 0.001f)
+        {
+            _gameManager.EndGame();
+        }
     }
 }

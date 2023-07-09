@@ -6,6 +6,7 @@ TagManager:
   tags:
   - tree
   - LumberSpawner
+  - BigTree
   layers:
   - Default
   - TransparentFX

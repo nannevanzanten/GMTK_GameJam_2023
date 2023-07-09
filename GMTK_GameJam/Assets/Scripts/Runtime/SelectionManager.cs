@@ -8,12 +8,7 @@ public class SelectionManager : MonoBehaviour
     public event EventHandler OnSelectTree;
 
     //private GameObject selectedTree;
-    private TreeBehaviour selectedTree;
-
-    private void Start()
-    {
-        selectedTree = GameObject.FindWithTag("tree").GetComponent<TreeBehaviour>();
-    }
+    [SerializeField] private TreeBehaviour selectedTree;
 
     private void Update()
     {
