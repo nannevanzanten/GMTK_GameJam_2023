@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8075033275566387891
 SpriteRenderer:
@@ -158,3 +158,4 @@ MonoBehaviour:
   timeToLevel1: 1
   timeToLevel2: 3
   treeLevel: 0
+  tree: {fileID: 4688390343175430850}
