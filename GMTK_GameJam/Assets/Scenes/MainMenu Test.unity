@@ -3872,7 +3872,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 512722840}
         m_TargetAssemblyTypeName: UI, Assembly-CSharp
         m_MethodName: Quitgame
         m_Mode: 1

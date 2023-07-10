@@ -14,7 +14,7 @@ public class TimeCycle : MonoBehaviour
     [SerializeField] private LumberjackBehaviour _lumber;
 
     private float _time;
-    private float _dayLength = 10f;
+    private float _dayLength = 25f;
     private float _nightLength = 5f;
 
     private int _dayCount = 0;
@@ -29,6 +29,15 @@ public class TimeCycle : MonoBehaviour
 
     void Update()
     {
+        if (_dayCount == 1)
+        {
+            _dayLength = 10f;
+        }
+        else
+        {
+            _dayLength = 25f;
+        }
+
         _time += Time.deltaTime;
 
         if (_time >= _dayLength)
